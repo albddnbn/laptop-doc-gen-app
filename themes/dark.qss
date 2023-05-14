@@ -1,0 +1,65 @@
+QMainWindow {
+    background-color: #2d2d2d;
+}
+
+/* Set background color and text color for QLineEdit */
+QLineEdit {
+    background-color: #4d4d4d;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    font-size: 16px;
+    padding-left: 6px;
+}
+QLineEdit:focus {
+    border-bottom: 2px solid #1e90ff;
+    
+    }
+QComboBox {
+    background-color: #3e3e3e;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    font-size: 16px;
+}
+
+/* Set text color for QLabel */
+QLabel {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+/* Set background color, text color, and border style for QPushButton */
+/* QPushButton {
+    background-color: #1e90ff;
+    color: #ffffff;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #1e90ff;
+    padding: 5px;
+    min-width: 80px;
+} */
+QPushButton{
+
+	padding: 2px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #141719, stop:1 #31363b);
+	text-transform: uppercase;
+	font-weight: bold;
+  color: #007acc;
+  border: 2px solid #007acc;
+	border-style: outset;
+
+  border-radius: 4px;
+  height: 32px;
+  font-size:14px;
+}
+/* Add hover effect for QPushButton */
+QPushButton:hover {
+    border-color: #e7e7e7;
+    color: #e7e7e7;
+}
+
+/* Set background color and text color for QMenuBar */
+QMenuBar {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
