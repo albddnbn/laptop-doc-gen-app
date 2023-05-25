@@ -110,7 +110,16 @@ class LaptopLoan:
         # grab first sentence of the body/text of the base welcome doc
         first_sentence = self.welcome_doc.paragraphs[1]
         # The only variable text on the document
-        welcome_string = f"Dear {student_name[:-12]}"
+        # if the students name ends with a 700#, then remove the 700# from the name
+        if student_name[-12:-11] == "7":
+            # try to turn the 700# into an int to make sure, remember it will be surrounded in ()
+            try:
+                int(student_name[-10:-2])
+                # if it works, then remove the 700# from the student's name
+                welcome_string = f"Dear {student_name[:-12]}"
+            except Exception:
+                print("no 700# after name")
+                welcome_string = f"Dear {student_name}"
         # rest of that chunk of text on the document
         rest_of_welcome = ": Welcome to Delaware Technical Community College!  This letter contains some helpful information pertaining to your laptop’s configuration of software and virtual support for assisting with technology issues."
 

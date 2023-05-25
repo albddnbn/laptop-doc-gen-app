@@ -1,2 +1,3 @@
 # laptop-doc-gen-app
-Generates Laptop Lending Documents for a student.
+
+Generates Laptop Lending documents required for a Laptop Loan to student.

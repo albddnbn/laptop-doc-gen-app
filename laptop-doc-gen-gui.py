@@ -112,9 +112,20 @@ class LaptopDocGen(QMainWindow):
     def create_welcome(self, student_name):
         # grab first sentence of the body/text of the base welcome doc
         first_sentence = self.welcome_doc.paragraphs[1]
-        if re.match(r'\((\d{7})\)$', student_name):
+        # this is another way to search for 700#
+        # if student_name[-12:-11] == "7":
+        #     try:
+        # if you can turn this part of the name into an integer, it's probably a 700# surrounded by parentheses
+        #         int(student_name[-10:-2])
+        #         welcome_string = f"Dear {student_name[:-12]}"
+        #     except Exception:
+        #         print("no 700# after name")
+        #         welcome_string = f"Dear {student_name}"
+        if re.search(r'\(\d{9}\)$', student_name):
+            
         # The only variable text on the document
             welcome_string = f"Dear {student_name[:-12]}"
+            print(welcome_string)
         else:
             welcome_string = f"Dear {student_name}"
         # rest of that chunk of text on the document
@@ -178,10 +189,11 @@ class LaptopDocGen(QMainWindow):
         # format: <serial number> / <asset tag>, ex: J854MNB / 2003198
         assetstring = f"{servtag} / {assettag}"
         tags = two_underlines.add_run(f'{assetstring}')
-        self.format_item(tags, Pt(13),False, True)
+        self.format_item(tags, Pt(12),False, True)
 
         # create new agreement file with student's name
-        self.agreement_filepath = f'{student_name}-agreement.docx'
+        self.agreement_filepath = f'{student_name}-agreement.docx'        
+        
         self.agree_doc.save(self.agreement_filepath)
         
         dt = datetime.now()
